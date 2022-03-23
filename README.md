@@ -1,3 +1,9 @@
+<h1 align="center">TelegramBrazilianDoxxing</h1>
+
+<p align="center">
+  <img src="https://github.com/Kiny-Kiny/TelegramBrazilianDoxxing/blob/main/asserts/01.gif"/>
+</p>
+
 <p align="center">
   <a href="https://github.com/Kiny-Kiny/TelegramBrazilianDoxxing/blob/main/asserts/example.md">Example</a> •
   <a href="https://github.com/Kiny-Kiny/TelegramBrazilianDoxxing/blob/main/asserts/main.md">Install & Run</a> •
