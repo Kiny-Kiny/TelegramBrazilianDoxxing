@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/Kiny-Kiny/TelegramBrazilianDoxxing/blob/main/asserts/main.md">Install & Run</a> •
-  <a href="https://youtube.com/channel/UC1aTvkvmTVO7OJ6oixtJo8w">Youtube Channel</a> •
+  <a href="https://youtube.com/c/reKINYCRIMSONLOL">Youtube Channel</a> •
   <a href="https://github.com/Kiny-Kiny">Author</a>
 </p>
 
