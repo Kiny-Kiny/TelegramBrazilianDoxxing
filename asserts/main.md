@@ -1,4 +1,4 @@
-<h2 align="center">Choose</h2>
+<h2 align="center">Choose:</h2>
 
 <p align="center">
   <a href="">Termux</a> •
