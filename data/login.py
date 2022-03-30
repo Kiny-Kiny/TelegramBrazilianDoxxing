@@ -2,6 +2,8 @@ from requests import Session
 from os import system
 from json import loads, dumps
 
+s = Session()
+
 def start():
     numero = input('[ * ] - Digite o número de telefone ===> ')
     while True:
