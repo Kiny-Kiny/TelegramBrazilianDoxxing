@@ -20,7 +20,7 @@ def main(args, user = "@PuxadasGratis24hrs"):
     }
     
     if not path.exists('dados.json'):
-        retorno = login.start()
+        retorno = login()
         if retorno['status'] != 200:
             return retorno
     
@@ -45,8 +45,11 @@ def main(args, user = "@PuxadasGratis24hrs"):
         codigo = input('[ + ] - Digite o código ===> ')
         
         system('clear||cls')
-         
-        client.sign_in(numero, codigo)
+        
+        try:
+            client.sign_in(numero, codigo)
+        except Exception:
+            pass
         
     for i in args: message+= i+' ';
     
@@ -74,9 +77,9 @@ def main(args, user = "@PuxadasGratis24hrs"):
                     if id == 1747207086:
                         messages.click(0)
                         func = {
-                        '/cpf': cpf_prodata.consulta,
-                        '/tel': tel_prodata.consulta,
-                        '/placa': placa_prodata.consulta
+                        '/cpf': cpf_prodata,
+                        '/tel': tel_prodata,
+                        '/placa': placa_prodata
                         }[args[0]]
                         break
                             
