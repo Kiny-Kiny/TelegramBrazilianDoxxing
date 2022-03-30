@@ -77,9 +77,9 @@ def main(args, user = "@PuxadasGratis24hrs"):
                     if id == 1747207086:
                         messages.click(0)
                         func = {
-                        '/cpf': cpf_prodata,
-                        '/tel': tel_prodata,
-                        '/placa': placa_prodata
+                        '/cpf': cpf_prodata.consulta,
+                        '/tel': tel_prodata.consulta,
+                        '/placa': placa_prodata.consulta
                         }[args[0]]
                         break
                             
