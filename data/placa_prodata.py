@@ -1,4 +1,4 @@
-def placa_prodata(message):
+def consulta(message):
     dados = {}
     ####################
     dados['dadosGerais'] = {
