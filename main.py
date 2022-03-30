@@ -293,7 +293,7 @@ def main(args, user = "@PuxadasGratis24hrs"):
                         pass
                 
                 while True:
-                    for messages in client.get_messages(entity, limit = 3):
+                    for messages in client.get_messages(entity):
                         id = messages.from_id.user_id
                         msg = messages.message
                     sleep(0.5)
