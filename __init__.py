@@ -1,7 +1,7 @@
 from os import system, path
 from json import loads
 from time import sleep
-from data import cpf_prodata, placa_prodata, tel_prodata
+from data import cpf_prodata, placa_prodata, tel_prodata, login
 from telethon import TelegramClient, connection, sync, events
 from telethon.tl.functions.channels import JoinChannelRequest
 
@@ -20,7 +20,7 @@ def main(args, user = "@PuxadasGratis24hrs"):
     }
     
     if not path.exists('dados.json'):
-        retorno = login()
+        retorno = login.start()
         if retorno['status'] != 200:
             return retorno
     
