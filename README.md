@@ -35,3 +35,7 @@
 </p>
 
 <h2 align="center">Update(s):</h2>
+
+| Date           | Change(s)                                                                  |
+| -------------- |:-------------:                                                         |
+| 30-03-22       | Consulta de Placa adicionada              
