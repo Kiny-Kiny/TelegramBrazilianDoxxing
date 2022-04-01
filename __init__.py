@@ -20,7 +20,7 @@ def main(args, user = "@PuxadasGratis24hrs"):
     }
     
     if not path.exists('dados.json'):
-        retorno = login()
+        retorno = login.start()
         if retorno['status'] != 200:
             return retorno
     
