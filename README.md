@@ -28,6 +28,10 @@
  ```
  requests
  ```
+
+```
+ujson
+```
 <h2 align="center">✉️ Contact</h2>
 <p align="center" >
   <a href="http://t.me/k_iny" alt="Telegram">
@@ -39,3 +43,4 @@
 | Date           | Change(s)                                                                  |
 | -------------- |:-------------:                                                         |
 | 30-03-22       | Consulta de Placa adicionada              
+| 8-04-22       | Consulta de RG e Email adicionadas
