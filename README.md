@@ -43,4 +43,4 @@ ujson
 | Date           | Change(s)                                                                  |
 | -------------- |:-------------:                                                         |
 | 30-03-22       | Consulta de Placa adicionada              
-| 8-04-22       | Consulta de RG e Email adicionadas
+| 08-04-22       | Consulta de RG e Email adicionadas
