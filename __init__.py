@@ -15,7 +15,7 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
 
     message = '';
     
-    stop = False
+    loop = True
 
     errorMessage = {
         '/tel': 'TELEFONE NÃO ENCONTRADO',
@@ -86,7 +86,7 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
                     except:
                         pass
 
-                while True:
+                while loop:
                     for messages in client.get_messages(entity, limit = 3):
                         id = messages.from_id.user_id
                         msg = messages.message
@@ -97,12 +97,9 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
                             except:
                                 pass
                             
-                            stop = True
+                            loop = False
                             break
-                            
                     sleep(0.5)
-                    if stop:
-                        break                 
 
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
             except Exception as e:
