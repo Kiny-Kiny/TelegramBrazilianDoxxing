@@ -1,4 +1,4 @@
-from json import dumps
+from ujson import dumps
 from sys import argv
 from __init__ import main
 def start():
