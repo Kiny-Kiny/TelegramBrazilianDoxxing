@@ -89,13 +89,15 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
                         id = messages.from_id.user_id
                         msg = messages.message
                     sleep(0.5)
-                    if id in [1747207086, 5047798512]:
-                        messages.click(0)
+                    # Arcadian : 1747207086
+                    if id == 5047798512:
+                        try: messages.click(0)
+                        except: pass
                         break
 
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
-            except Exception:
-                dados = {"status": 400, "message": errorMessage[key]}
+            except Exception as e:
+                dados = {"status": 400, "message": errorMessage[key]};print(str(e))
     except:
         dados =  {"status": 500, "message": "ERRO NO SERVIDOR"}
 
