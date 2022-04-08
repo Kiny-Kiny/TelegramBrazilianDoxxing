@@ -14,6 +14,8 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
     key = args[0]
 
     message = '';
+    
+    stop = False
 
     errorMessage = {
         '/tel': 'TELEFONE NÃO ENCONTRADO',
@@ -88,12 +90,19 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
                     for messages in client.get_messages(entity, limit = 3):
                         id = messages.from_id.user_id
                         msg = messages.message
+                        # Arcadian : 1747207086
+                        if id == 5047798512:
+                            try:
+                                messages.click(0)
+                            except:
+                                pass
+                            
+                            stop = True
+                            break
+                            
                     sleep(0.5)
-                    # Arcadian : 1747207086
-                    if id == 5047798512:
-                        try: messages.click(0)
-                        except: pass
-                        break
+                    if stop:
+                        break                 
 
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
             except Exception as e:
