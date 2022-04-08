@@ -1,3 +1,4 @@
 requests
 telethon
 python-socks
+ujson
