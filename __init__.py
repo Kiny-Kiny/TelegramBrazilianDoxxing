@@ -1,14 +1,22 @@
 from os import system, path
 from ujson import loads
 from time import sleep
-from data import frag_tel, frag_cpf, frag_placa, frag_email, frag_rg, login
+from random import choice
+#from data import frag_tel, frag_cpf, frag_placa, frag_email, frag_rg, login
+from data import placa_prodata, tel_prodata, cpf_prodata, login
 from telethon import TelegramClient, connection, sync, events
 from telethon.tl.functions.channels import JoinChannelRequest
 
-def main(args, user = "@Hashiro_Consultas_Gratis"):
+def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
+    consulta = {
+        '/tel': tel_prodata,
+        '/cpf': cpf_prodata,
+        '/placa': placa_prodata,
+    }
+    
     if len(args) < 2:
         return {'status': 402, 'message': 'Alguns parâmetros estão faltando!'}
-    elif args[0] not in [ '/tel', '/cpf', '/placa', '/rg', '/email']:
+    elif args[0] not in consulta:
         return {"status": 403, "message": "Comando Inválido!"}
 
     key = args[0]
@@ -25,13 +33,7 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
         '/email': 'EMAIL NÃO ENCONTRADO'
     }
 
-    parser = {
-        '/tel': frag_tel,
-        '/cpf': frag_cpf,
-        '/placa': frag_placa,
-        '/rg': frag_rg,
-        '/email': frag_email
-    }[key].consulta
+    parser = consulta[key].consulta
 
     if not path.exists('dados.json'):
         retorno = login.start()
@@ -68,6 +70,8 @@ def main(args, user = "@Hashiro_Consultas_Gratis"):
     for i in args: message+= i+' ';
 
     message = message[:-1]
+    
+    user = choice(user)
 
     try:
             try:
