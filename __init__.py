@@ -95,7 +95,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                         id = messages.from_id.user_id
                         msg = messages.message
                         # Arcadian : 1747207086
-                        if id == 5047798512:
+                        if id == 1747207086:
                             try:
                                 messages.click(0)
                             except:
