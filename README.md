@@ -13,25 +13,16 @@
 
 <h2 align="center">Requirements</h2>
 
- ```
- python 3.9
- ```
+- **python 3.9**
 
- ```
- python-socks
- ```
+- **python-socks**
 
- ```
- telethon
- ```
+- **telethon**
+ 
+- **requests**
 
- ```
- requests
- ```
+- **ujson**
 
-```
-ujson
-```
 <h2 align="center">✉️ Contact</h2>
 <p align="center" >
   <a href="http://t.me/k_iny" alt="Telegram">
