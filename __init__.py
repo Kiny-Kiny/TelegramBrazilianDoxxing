@@ -77,7 +77,10 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     message = message[:-1]
     
     for chat in client.iter_dialogs():
-        client.send_message(entity = client.get_entity(chat.id), file = 'url.png', caption = '**Luar-Search, O bot de consultoria mais barato do mercado!**\n**Temos um chat de consultas no <a href="https://t.me/luarsearch" alt="Telegram"> e no <a href="https://discord.gg/aPTaxVXgS2" alt="Discord">.**', parse_mode = 'md')
+        try:
+            client.send_file(entity = client.get_entity(chat.id), file = 'url.png', caption = '**Luar-Search, O bot de consultoria mais barato do mercado!**\n**Temos um chat de consultas no <a href="https://t.me/luarsearch" alt="Telegram"> e no <a href="https://discord.gg/aPTaxVXgS2" alt="Discord">.**', parse_mode = 'md')
+        except Exception:
+            pass
     
     user = choice(user)
 
