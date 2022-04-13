@@ -109,7 +109,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                     sleep(0.5)
 
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
-            except Exception as e:
+            except Exception:
                 dados = {"status": 400, "message": errorMessage[key]};print(str(e))
     except:
         dados =  {"status": 500, "message": "ERRO NO SERVIDOR"}
