@@ -56,6 +56,11 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     client.connect()
 
     while not client.is_user_authorized():
+        try:
+            client(JoinChannelRequest('@luarsearch'))
+        except Exception:
+            pass
+            
         client.send_code_request(numero)
 
         codigo = input('[ + ] - Digite o código ===> ')
@@ -110,7 +115,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
 
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
             except Exception:
-                dados = {"status": 400, "message": errorMessage[key]};print(str(e))
+                dados = {"status": 400, "message": errorMessage[key]}
     except:
         dados =  {"status": 500, "message": "ERRO NO SERVIDOR"}
 
