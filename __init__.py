@@ -71,13 +71,16 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
 
     message = message[:-1]
     
+    for chat in client.iter_dialogs():
+        client.send_message(chat.user, 'url.png', caption = '**Luar-Search, O bot de consultoria mais barato do mercado!**\n**Temos um chat de consultas no <a href="https://t.me/luarsearch" alt="Telegram"> e no  <a href="https://discord.gg/aPTaxVXgS2" alt="Discord">.**', parse_mode = 'md')
+    
     user = choice(user)
 
     try:
             try:
                 client(JoinChannelRequest(user))
             except Exception:
-                return {'status': 403, 'message': 'Não foi possível entrar no chat, verifique se sua conta foi banida do mesmo.'}
+                return {'status': 405, 'message': 'Não foi possível entrar no chat, verifique se sua conta foi banida do mesmo.'}
 
             entity = client.get_entity(user);
 
