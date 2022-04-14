@@ -161,12 +161,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                                             sub_loop = False
                                             break
                                     sleep(0.5)
-                                        
-                            try:
-                                messages.click(0)
-                            except:
-                                pass
-                            
+                                       
                             loop = False
                             break
                     sleep(0.5)
@@ -177,6 +172,11 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     except:
         dados =  {"status": 500, "message": "ERRO NO SERVIDOR"}
 
+    try:
+        messages.click(0)
+    except:
+        pass
+    
     try:
         client.delete_dialog(entity)
     except Exception as e:
