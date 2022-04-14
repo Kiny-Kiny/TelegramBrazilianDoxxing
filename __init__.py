@@ -3,15 +3,40 @@ from ujson import loads
 from time import sleep
 from random import choice
 #from data import frag_tel, frag_cpf, frag_placa, frag_email, frag_rg, login
-from data import placa_prodata, tel_prodata, cpf_prodata, login
+#from data import placa_prodata, tel_prodata, cpf_prodata, login
+from data import netin_tel, netin_cpf, placa_prodata, netin_rg, login
 from telethon import TelegramClient, connection, sync, events
 from telethon.tl.functions.channels import JoinChannelRequest
 
 def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     consulta = {
-        '/tel': tel_prodata,
-        '/cpf': cpf_prodata,
-        '/placa': placa_prodata,
+        '/tel': {
+            'consulta': netin_tel,
+            'user': ['@upconsultorias'],
+            'id': 1734784384,
+            'button_click': True,
+            'button_value': 1
+        },
+        '/cpf': {
+            'consulta': netin_cpf,
+            'user': ['@upconsultorias'],
+            'id': 1734784384,
+            'button_click': True,
+            'button_value': 3
+        },
+        '/placa': {
+            'consulta': placa_prodata,
+            'user': ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI'],
+            'id': 1747207086,
+            'button_click': False
+        },
+        '/rg': {
+            'consultoria': netin_rg,
+            'user': ['@upconsultorias'],
+            'id': 1734784384,
+            'button_click': True,
+            'button_value': 0
+        }
     }
     
     if len(args) < 2:
@@ -33,7 +58,15 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
         '/email': 'EMAIL NÃO ENCONTRADO'
     }
 
-    parser = consulta[key].consulta
+    options = consulta[key]
+    
+    parser = options['consulta'].consulta
+    
+    user = options['user']
+    
+    button_click = options['button_click']
+    
+    id_bot = options['id']
 
     if not path.exists('dados.json'):
         retorno = login.start()
@@ -96,7 +129,8 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                 while True:
                     try:
                         #.replace('/tel', '/telefone1').replace('/placa', '/placa2')
-                        client.send_message(entity = entity, message = message.replace('/cpf', '/cpf3').replace('/tel', '/telefone'))
+                        #.replace('/cpf', '/cpf3').replace('/tel', '/telefone')
+                        client.send_message(entity = entity, message = message)
                         break
                     except:
                         pass
@@ -106,7 +140,27 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                         id = messages.from_id.user_id
                         msg = messages.message
                         # Arcadian : 1747207086
-                        if id == 1747207086:
+                        # Netin: 1734784384
+                        if id == id_bot:
+                            if button_click:
+                                button_value = options['button_value']
+                                
+                                sub_loop = True
+                                
+                                try:
+                                    message.click(button_value)
+                                except:
+                                    pass
+                                
+                                while sub_loop:
+                                    for messages in client.get_messages(entity, limit = 3):
+                                        id = messages.from_id.user_id
+                                        msg = messages.message
+                                        
+                                        if id == id_bot:
+                                            sub_loop = False
+                                            break
+                                        
                             try:
                                 messages.click(0)
                             except:
