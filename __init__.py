@@ -160,6 +160,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                                         if id == id_bot:
                                             sub_loop = False
                                             break
+                                    sleep(0.5)
                                         
                             try:
                                 messages.click(0)
