@@ -137,7 +137,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                         pass
 
                 while loop:
-                    for messages in client.get_messages(entity, limit = 3):
+                    for messages in client.get_messages(entity):
                         id = messages.from_id.user_id
                         msg = messages.message
                         # Arcadian : 1747207086
@@ -154,7 +154,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                                     pass
                                 
                                 while sub_loop:
-                                    for messages in client.get_messages(entity, limit = 3):
+                                    for messages in client.get_messages(entity):
                                         id = messages.from_id.user_id
                                         msg = messages.message
                                         
