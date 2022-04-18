@@ -137,34 +137,24 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                         pass
 
                 while loop:
-                    for messages in client.get_messages(entity):
-                        id = messages.from_id.user_id
-                        msg = messages.message
-                        # Arcadian : 1747207086
-                        # Netin: 1734784384
-                        if id == id_bot:
-                            if button_click:
-                                button_value = options['button_value']
+                    messages = client.get_messages(entity)[0]
+                    id = messages.from_id.user_id
+                    msg = messages.message
+                    # Arcadian : 1747207086
+                    # Netin: 1734784384
+                    if id == id_bot:
+                        if button_click:
+                            button_value = options['button_value']
+                            
+                            try:
+                                messages.click(button_value)
+                            except:
+                                pass
                                 
-                                sub_loop = True
-                                
-                                try:
-                                    message.click(button_value)
-                                except:
-                                    pass
-                                
-                                while sub_loop:
-                                    for messages in client.get_messages(entity):
-                                        id = messages.from_id.user_id
-                                        msg = messages.message
-                                        
-                                        if id == id_bot:
-                                            sub_loop = False
-                                            break
-                                    sleep(0.5)
-                                       
-                            loop = False
-                            break
+                            msg = client.get_messages(entity)[0].message
+                            
+                        loop = False
+                        
                     sleep(0.5)
 
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
