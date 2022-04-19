@@ -23,6 +23,13 @@
 
 - **ujson**
 
+ <h2 align="center">💰 Donate</h2>
+ 
+ - Chave **Pix** para ajudar a manter o projeto ativo:
+ ```
+  06acdbe2-ccf2-4c14-b8c1-7f0c965f629d
+ ```
+
 <h2 align="center">✉️ Contact</h2>
 <p align="center" >
   <a href="http://t.me/k_iny" alt="Telegram">
