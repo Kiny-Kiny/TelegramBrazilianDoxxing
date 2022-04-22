@@ -22,7 +22,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'user': ['@upconsultorias'],
             'id': 1734784384,
             'button_click': True,
-            'button_value': 5
+            'button_value': 4
         },
         '/placa': {
             'consulta': placa_prodata,
@@ -150,7 +150,8 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                                 messages.click(button_value)
                             except:
                                 pass
-                                
+                            
+                            sleep(3)
                             msg = client.get_messages(entity)[0].message
                             
                         loop = False
