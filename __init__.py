@@ -10,7 +10,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 
 def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     consulta = {
-        '/tel': {
+        '/telefone': {
             'consulta': netin_tel,
             'user': ['@upconsultorias'],
             'id': 1734784384,
@@ -51,7 +51,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     loop = True
 
     errorMessage = {
-        '/tel': 'TELEFONE NÃO ENCONTRADO',
+        '/telefone': 'TELEFONE NÃO ENCONTRADO',
         '/cpf': 'CPF NÃO ENCONTRADO',
         '/placa': 'PLACA NÃO ENCONTRADA',
         '/rg': 'RG NÃO ENCONTRADO',
