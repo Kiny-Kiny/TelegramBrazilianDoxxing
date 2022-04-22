@@ -26,7 +26,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
         },
         '/placa': {
             'consulta': placa_prodata,
-            'user': ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI'],
+            'user': ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI', '@Puxadas'],
             'id': 1747207086,
             'button_click': False
         },
