@@ -1,7 +1,8 @@
+from base64 import b64encode
 def consulta(message):
     dados = {}
     with open('foto.jpg', 'rb') as f:
-      foto = f.read()
+      foto = b64.encode(f.read())
     ################
     dados['dadosPessoais'] = {
         'nome': message.split('NOME: ')[1].split('\n')[0],
