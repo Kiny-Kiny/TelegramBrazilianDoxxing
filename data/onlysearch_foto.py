@@ -9,6 +9,6 @@ def consulta(message):
         'pai': message.split('PAI: ')[1].split('\n')[0],
         'mae': message.split('MÃE: ')[1].split('\n')[0]
      }
-    dados['foto'] = foto
+    dados['foto'] = str(foto)
     ################
     return dados
