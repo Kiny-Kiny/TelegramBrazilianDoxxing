@@ -4,13 +4,13 @@ from time import sleep
 from random import choice
 #from data import frag_tel, frag_cpf, frag_placa, frag_email, frag_rg, login
 #from data import placa_prodata, tel_prodata, cpf_prodata, login
-from data import netin_tel, netin_cpf, placa_prodata, netin_rg, login
+from data import netin_tel, netin_cpf, placa_prodata, netin_rg, onlysearch_foto,login
 from telethon import TelegramClient, connection, sync, events
 from telethon.tl.functions.channels import JoinChannelRequest
 
 def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     consulta = {
-        '/telefone': {
+        '/tel': {
             'consulta': netin_tel,
             'user': ['@upconsultorias'],
             'id': 1734784384,
@@ -22,11 +22,11 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'user': ['@upconsultorias'],
             'id': 1734784384,
             'button_click': True,
-            'button_value': 4
+            'button_value': 3
         },
         '/placa': {
             'consulta': placa_prodata,
-            'user': ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI', '@Puxadas'],
+            'user': ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI'],
             'id': 1747207086,
             'button_click': False
         },
@@ -34,6 +34,13 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'consulta': netin_rg,
             'user': ['@upconsultorias'],
             'id': 1734784384,
+            'button_click': True,
+            'button_value': 0
+        },
+        '/foto': {
+            'consulta': onlysearch_foto,
+            'user': ['@tropadolux'],
+            'id': 5225772947,
             'button_click': True,
             'button_value': 0
         }
@@ -51,11 +58,12 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     loop = True
 
     errorMessage = {
-        '/telefone': 'TELEFONE NÃO ENCONTRADO',
+        '/tel': 'TELEFONE NÃO ENCONTRADO',
         '/cpf': 'CPF NÃO ENCONTRADO',
         '/placa': 'PLACA NÃO ENCONTRADA',
         '/rg': 'RG NÃO ENCONTRADO',
-        '/email': 'EMAIL NÃO ENCONTRADO'
+        '/email': 'EMAIL NÃO ENCONTRADO',
+        '/foto': 'FOTO NÃO ENCONTRADA'
     }
 
     options = consulta[key]
@@ -142,6 +150,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                     msg = messages.message
                     # Arcadian : 1747207086
                     # Netin: 1734784384
+                    # OnlySearch: 5225772947
                     if id == id_bot:
                         if button_click:
                             button_value = options['button_value']
@@ -150,14 +159,19 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                                 messages.click(button_value)
                             except:
                                 pass
-                            
-                            sleep(3)
-                            msg = client.get_messages(entity)[0].message
+                                
+                            messages = client.get_messages(entity)[0] 
+                            msg = messages.message
                             
                         loop = False
                         
                     sleep(0.5)
 
+                if key in ['/foto']:
+                    client.download_media(
+                        messages.media,
+                        'foto.jpg'
+                    )
                 dados = {"status": 200, "message": parser(msg.replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', ''))}
             except Exception:
                 dados = {"status": 400, "message": errorMessage[key]}
