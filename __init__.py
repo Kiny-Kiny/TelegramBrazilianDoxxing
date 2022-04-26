@@ -31,7 +31,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'button_click': False
         },
         '/rg': {
-            'consultoria': netin_rg,
+            'consulta': netin_rg,
             'user': ['@upconsultorias'],
             'id': 1734784384,
             'button_click': True,
