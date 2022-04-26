@@ -1,7 +1,7 @@
 def consulta(message):
     dados = {}
-    foto = message.media.photo.sizes[0].bytes
-    message = (message.message).replace('*', '').replace('`', '').replace('_', '').replace('› ', '').replace('• ', '')
+    with open('foto.jpg', 'rb') as f:
+      foto = f.read()
     ################
     dados['dadosPessoais'] = {
         'nome': message.split('NOME: ')[1].split('\n')[0],
