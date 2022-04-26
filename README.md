@@ -43,4 +43,5 @@
 | 30-03-22       | Consulta de Placa adicionada              
 | 08-04-22       | Consulta de RG e Email adicionadas
 | 10-04-22       | Novas consultas removidas temporariamente
-| 14-04-22       | Consulta de RG adicionada novamente 
+| 14-04-22       | Consulta de RG adicionada novamente
+| 26-04-22       | Consulta de Foto adicionada
