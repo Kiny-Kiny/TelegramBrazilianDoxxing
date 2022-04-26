@@ -160,6 +160,8 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
                             except:
                                 pass
                                 
+                            sleep(3)
+                            
                             messages = client.get_messages(entity)[0] 
                             msg = messages.message
                             
