@@ -45,3 +45,4 @@
 | 10-04-22       | Novas consultas removidas temporariamente
 | 14-04-22       | Consulta de RG adicionada novamente
 | 26-04-22       | Consulta de Foto adicionada
+| 27-04-22.      | Nova base de CPF adicionada e consulta de Email adicionada novamente
