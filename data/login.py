@@ -1,5 +1,6 @@
 from requests import Session
 from os import system
+from random import randint
 from json import loads, dumps
 
 s = Session()
@@ -40,8 +41,8 @@ def start():
                 s.post('https://my.telegram.org/apps/create',
                     data = {
                     'hash': token,
-                    'app_title': 'Kiny_Crimson',
-                    'app_shortname': 'ByKiny',
+                    'app_title': 'Kiny_Crimson'+str(randint(111111, 999999)),
+                    'app_shortname': 'ByKiny'+str(randint(111111, 999999)),
                     'app_url': '',
                     'app_platform': 'android',
                     'app_desc': ''
