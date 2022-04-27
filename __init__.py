@@ -4,7 +4,7 @@ from time import sleep
 from random import choice
 #from data import frag_tel, frag_cpf, frag_placa, frag_email, frag_rg, login
 #from data import placa_prodata, tel_prodata, cpf_prodata, login
-from data import netin_tel, netin_cpf, placa_prodata, netin_rg, onlysearch_foto,login
+from data import netin_tel, netin_cpf, placa_prodata, netin_rg, onlysearch_foto, onlysearch_email, onlysearch_cpf, login
 from telethon import TelegramClient, connection, sync, events
 from telethon.tl.functions.channels import JoinChannelRequest
 
@@ -15,6 +15,7 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'user': ['@upconsultorias'],
             'id': 1734784384,
             'button_click': True,
+            'replace': False,
             'button_value': 1
         },
         '/cpf': {
@@ -22,19 +23,22 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'user': ['@upconsultorias'],
             'id': 1734784384,
             'button_click': True,
+            'replace': False,
             'button_value': 4
         },
         '/placa': {
             'consulta': placa_prodata,
             'user': ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI'],
             'id': 1747207086,
-            'button_click': False
+            'button_click': False,
+            'replace': False
         },
         '/rg': {
             'consulta': netin_rg,
             'user': ['@upconsultorias'],
             'id': 1734784384,
             'button_click': True,
+            'replace': False,
             'button_value': 0
         },
         '/foto': {
@@ -42,6 +46,26 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
             'user': ['@tropadolux'],
             'id': 5225772947,
             'button_click': True,
+            'replace': True,
+            'replace_value': '/foto@OnlyBuscasBot',
+            'button_value': 0
+        },
+        '/email': {
+            'consulta': onlysearch_email,
+            'user': ['@tropadolux'],
+            'id': 5225772947,
+            'button_click': True,
+            'replace': True,
+            'replace_value': '/email@OnlyBuscasBot',
+            'button_value': 0
+        },
+        '/cpf2': {
+            'consulta': onlysearch_cpf,
+            'user': ['@tropadolux'],
+            'id': 5225772947,
+            'button_click': True,
+            'replace': True,
+            'replace_value': '/cpf@OnlyBuscasBot',
             'button_value': 0
         }
     }
@@ -63,7 +87,8 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
         '/placa': 'PLACA NÃO ENCONTRADA',
         '/rg': 'RG NÃO ENCONTRADO',
         '/email': 'EMAIL NÃO ENCONTRADO',
-        '/foto': 'FOTO NÃO ENCONTRADA'
+        '/foto': 'FOTO NÃO ENCONTRADA',
+        '/cpf2': 'CPF NÃO ENCONTRADO'
     }
 
     options = consulta[key]
@@ -116,6 +141,9 @@ def main(args, user = ['@PuxadasGratis24hrs', '@CONSULTAS_AQUI']):
     for i in args: message+= i+' ';
 
     message = message[:-1]
+    
+    if options['replace']:
+        message = message.replace(key, options['replace_value'])
     
     for chat in client.iter_dialogs():
         try:
